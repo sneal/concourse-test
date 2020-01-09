@@ -1,4 +1,5 @@
 #!/bin/bash
 
 echo 'hello world'
-echo pipeline-resources/.git/short_ref
+ls pipeline-resources/.git
+cat pipeline-resources/.git/short_ref
