@@ -1,0 +1,13 @@
+resources:
+- name: pipeline-resources
+  type: git
+  source:
+    uri: https://github.com/sneal/concourse-test.git
+    branch: master
+
+jobs:
+  - name: job1
+    plan:
+      - get: pipeline-resources
+      - task: task1
+        file: pipeline-resources/tasks/task.yml

@@ -1,0 +1,11 @@
+---
+    platform: linux
+    
+    inputs:
+      - name: pipeline-resources
+    
+    params:
+  
+    run:
+      path: pipeline-resources/tasks/task.sh
+    
