@@ -1,13 +1,21 @@
 resources:
-- name: pipeline-resources
-  type: git
-  source:
-    uri: https://github.com/sneal/concourse-test.git
-    branch: master
+  - name: windows-stemcell-concourse-image
+    type: docker-image
+    source:
+      repository: cfcommunity/windows-stemcell-concourse
+      tag: latest
+
+  - name: pipeline-resources
+    type: git
+    source:
+      uri: https://github.com/sneal/concourse-test.git
+      branch: master
 
 jobs:
   - name: job1
     plan:
       - get: pipeline-resources
+      - get: windows-stemcell-concourse-image
       - task: task1
         file: pipeline-resources/tasks/task.yml
+        image: windows-stemcell-concourse-image
